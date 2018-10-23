@@ -21,7 +21,7 @@ $uname = $_SESSION['uname']
 </head>
 
 
-<body>
+<body background="tiger.jpeg">
   <nav class="navbar navbar-expand-md bg-dark navbar-dark fixed-top">
     <a class="navbar-brand" href="aboutus.html"> cup of tea </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#menubar">
@@ -65,29 +65,29 @@ $uname = $_SESSION['uname']
   ?>
   <div id="edit">
   <center>
-  <form action="editprofile.php" method="POST" id="edit-profile" name="edit-profile">
+  <form action="editprofile.php" method="POST" id="edit-profile" name="edit-profile" enctype="multipart/form-data">
     <div class="form-group row">
-      <label for="uname" > Username </label>
       <div class="col-sm-8">
+          <label for="name" > Name </label>
         <?php
-        echo "<input type='text' class='form-control' name='uname' id='uname' value=$uname placeholder='Username' />";
+        echo "<input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\" value='$row[0]' placeholder='Name of the blog' required/>";
         ?>
       </div>
     </div>
     <div class="form-group row">
-      <label for="name" > Name </label>
+
       <div class="col-sm-8">
-        <?php
-        echo "<input type=\"text\" class=\"form-control\" name=\"name\" id=\"name\" value=$row[0] placeholder=\"Name of the blog\" required/>";
-        ?>
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="bio"> Bio </label>
-      <div class="col-sm-8">
+          <label for="bio"> Bio </label>
         <?php
         echo "<textarea class=\"form-control rounded-2\" form=\"edit-profile\" id=\"bio\" name=\"bio\"  placeholder=\"Write something nice about yourself here!\" rows=\"3\">$row[1]</textarea>";
         ?>
+      </div>
+    </div>
+    <div class="form-group row">
+
+      <div class="col-sm-8">
+          <label for="bio"> Profile Picture </label>
+        <input type="file" name="pic" id="pic">
       </div>
     </div>
     <div class="row">
