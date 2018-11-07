@@ -1,4 +1,4 @@
-
+//profile page of the user
 <?php
 include "index.php";
 session_start();
