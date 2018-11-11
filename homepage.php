@@ -29,7 +29,7 @@ session_start();
     margin-bottom: 20px;
   }
   body {
-    background-color: #2d2d30;
+    background-image: url("images/nightsky1.jpg");
   }
   .bg-main{
     width:900px;
@@ -38,6 +38,7 @@ session_start();
     /* border: 2px solid black; */
     /* box-shadow:4px 4px black; */
     box-shadow: 0 4px 8px 0 rgba(1, 1, 1, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: 2px solid black;
 
   }
   .bg-1{
@@ -174,7 +175,7 @@ session_start();
       <p> $row[4] on $row[3] </p>
       </div>
         <div class=\"col-sm-9\">
-           <h2> $row[0]  </h2>
+           <h2 style = 'font-family: '> $row[0]  </h2>
         </div>
       </div>
       <hr>
