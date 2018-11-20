@@ -13,6 +13,13 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <style>
+  img.img-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    /* margin: 20px 200px; */
+
+  }
 
   no-js #loader { display: none;  }
   .js #loader { display: block; position: absolute; left: 100px; top: 0; }
@@ -122,13 +129,13 @@ session_start();
     <div class="collapse navbar-collapse" id="menubar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href=#> Home </a>
+          <a class="nav-link" href=homepage.html> Home </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href=discover.html> Discover </a>
+          <a class="nav-link active" href=discover.html> Discover </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="createnew.html"> Create new </a>
+          <a class="nav-link" href="createnew.php"> Create new </a>
         </li>
       </ul>
     </div>
@@ -137,9 +144,9 @@ session_start();
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href=# id="navbardrop" data-toggle="dropdown"> Your profile </a>
           <div class="dropdown-menu">
-            <a class = "dropdown-item" href=profile.htm> Go to your profile </a>
-            <a class="dropdown-item" href=#> Edit Profile </a>
-            <a class="dropdown-item" href="#"> Sign out </a>
+            <a class = "dropdown-item" href=profile.php> Go to your profile </a>
+            <a class="dropdown-item" href=edit.php> Edit Profile </a>
+            <a class="dropdown-item" href="login.php"> Sign out </a>
           </div>
         </li>
       </ul>
@@ -168,37 +175,39 @@ session_start();
 
 
 
-  while($row = mysqli_fetch_row($result)) {
-    echo " <div class=\"container-fluid bg-main text-center\">";
-      echo "  <div class=\"row bg-3\">
-      <div class='col-sm-3'>
-      <p> Posted by  </p>
-      <p> $row[4] on $row[3] </p>
+    while($row = mysqli_fetch_row($result)) {
+      echo " <div class=\"container-fluid profile bg-main text-center\">";
+        echo "  <div class=\"row bg-3\">
+        <div class='col-sm-2'>
+        <p style = 'color: #006600'> Posted by  </p>
+        <img src='../images/bg2.jpg'  class=\"img-responsive img-circle margin\" alt=\"blah\" width=\"60px\" style=\"display:inline\">
+        <p style = 'color: #006600'> $row[4] </p>
+
+        </div>
+          <div class=\"col-sm-8\">
+             <h2 style = 'font-family: 'Oswald', sans-serif'> $row[0]  </h2>
+          </div>
+        </div>
+        <div class=\"row\">
+          <div class=\"col-sm-8 bg-2\">
+            <p>$row[1]</p>
+
+        </div>
+        </div>
+        <div class=\"row bg-3\">
+          <div class=\"col-sm-6 \">
+            <p style = 'color: #006600'> Category: $row[2] </p>
+          </div>
+          <div class=\"col-sm-6 \">
+            <p style = 'color: #006600'> Posted on: $row[3] </p>
+          </div>
+
+
+
       </div>
-        <div class=\"col-sm-9\">
-           <h2> $row[0]  </h2>
-        </div>
-      </div>
-      <hr>
-      <div class=\"row\">
-        <div class=\"col-sm-8 bg-2\">
-          <p> $row[1] </p>
-        </div>
-      </div>
-      <div class=\"row bg-3\">
-        <div class=\"col-sm-6 \">
-          <p> Category: $row[2] </p>
-        </div>
-        <div class=\"col-sm-6 \">
-          <p> Posted on: $row[3] </p>
-        </div>
+    </div>";
 
-
-
-    </div>
-  </div>";
-
-  }
+    }
 
   ?>
 

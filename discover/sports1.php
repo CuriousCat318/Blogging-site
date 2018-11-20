@@ -152,11 +152,26 @@ session_start();
     </div>
   </nav>
   <div class="row profile">
-    <h1> Music </h1>
+    <h1> Sports </h1>
   </div>
   <?php
-  $query = "SELECT p.title,p.post,p.category,p.date,u.name from posts as p ,user_details as u  where p.uname=u.username and p.category='Music' order by date DESC";
+  $query = "SELECT p.title,p.post,p.category,p.date,u.name from posts as p ,user_details as u  where p.uname=u.username and p.category='Sports' order by date DESC";
   $result = mysqli_query($con,$query);
+
+
+    // echo "<div class=\"container-fluid profile bg-4 text-center\">
+    //     <div class=\"row bg-5\">
+    //     <div class=\"col-sm-8 \">
+    //        <h2> Write a new post </h2>
+    //        <hr>
+    //        <form action='createnew.php'>
+    //        <button type='submit' class='btn btn-dark btn-block' name='submit'> Write your post here! </button>
+    //     </div>
+    //   </div>
+    //   <hr>";
+
+
+
 
 
     while($row = mysqli_fetch_row($result)) {

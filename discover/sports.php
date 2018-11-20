@@ -13,7 +13,13 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <style>
+  img.img-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    /* margin: 20px 200px; */
 
+  }
   no-js #loader { display: none;  }
   .js #loader { display: block; position: absolute; left: 100px; top: 0; }
   .se-pre-con {
@@ -149,7 +155,7 @@ session_start();
     <h1> Sports </h1>
   </div>
   <?php
-  $query = "SELECT p.title,p.post,p.category,p.date,u.name from posts as p ,user_details as u  where p.uname=u.username and p.category='Sports' order by date DESC";
+  $query = "SELECT p.title,p.post,p.category,p.date,u.name from posts as p ,user_details as u  where p.uname=u.username and p.category='Technology' order by date DESC";
   $result = mysqli_query($con,$query);
 
 
@@ -168,37 +174,39 @@ session_start();
 
 
 
-  while($row = mysqli_fetch_row($result)) {
-    echo " <div class=\"container-fluid bg-main text-center\">";
-      echo "  <div class=\"row bg-3\">
-      <div class='col-sm-3'>
-      <p> Posted by  </p>
-      <p> $row[4] on $row[3] </p>
+    while($row = mysqli_fetch_row($result)) {
+      echo " <div class=\"container-fluid profile bg-main text-center\">";
+        echo "  <div class=\"row bg-3\">
+        <div class='col-sm-2'>
+        <p style = 'color: #006600'> Posted by  </p>
+        <img src='../images/bg2.jpg'  class=\"img-responsive img-circle margin\" alt=\"blah\" width=\"60px\" style=\"display:inline\">
+        <p style = 'color: #006600'> $row[4] </p>
+
+        </div>
+          <div class=\"col-sm-8\">
+             <h2 style = 'font-family: 'Oswald', sans-serif'> $row[0]  </h2>
+          </div>
+        </div>
+        <div class=\"row\">
+          <div class=\"col-sm-8 bg-2\">
+            <p>$row[1]</p>
+
+        </div>
+        </div>
+        <div class=\"row bg-3\">
+          <div class=\"col-sm-6 \">
+            <p style = 'color: #006600'> Category: $row[2] </p>
+          </div>
+          <div class=\"col-sm-6 \">
+            <p style = 'color: #006600'> Posted on: $row[3] </p>
+          </div>
+
+
+
       </div>
-        <div class=\"col-sm-9\">
-           <h2> $row[0]  </h2>
-        </div>
-      </div>
-      <hr>
-      <div class=\"row\">
-        <div class=\"col-sm-8 bg-2\">
-          <p> $row[1] </p>
-        </div>
-      </div>
-      <div class=\"row bg-3\">
-        <div class=\"col-sm-6 \">
-          <p> Category: $row[2] </p>
-        </div>
-        <div class=\"col-sm-6 \">
-          <p> Posted on: $row[3] </p>
-        </div>
+    </div>";
 
-
-
-    </div>
-  </div>";
-
-  }
+    }
 
   ?>
 
