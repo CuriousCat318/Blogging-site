@@ -12,101 +12,8 @@ session_start();
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-  <style>
-  img.img-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 100px;
-    /* margin: 20px 200px; */
+  <link rel="stylesheet" href="style.css">
 
-  }
-  no-js #loader { display: none;  }
-  .js #loader { display: block; position: absolute; left: 100px; top: 0; }
-  .se-pre-con {
-  	position: fixed;
-  	left: 0px;
-  	top: 0px;
-  	width: 100%;
-  	height: 100%;
-  	z-index: 9999;
-  	background: url(../simple-pre-loader/images/loader-64x/Preloader_3.gif) center no-repeat #fff;
-  }
-  .profile {
-    margin-top : 70px;
-    margin-bottom: 20px;
-    margin-left: 40px;
-    color: white;
-  }
-  body {
-    background-color: #2d2d30;
-  }
-  .bg-main{
-    width:900px;
-    background-color: white;
-    border-radius: 3px;
-    /* border: 2px solid black; */
-    /* box-shadow:4px 4px black; */
-    box-shadow: 0 4px 8px 0 rgba(1, 1, 1, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-  }
-  .bg-1{
-    width:900px;
-    /* length:500px; */
-    /* background-color: black; */
-    color:white;
-    /* border: 2px solid white; */
-  }
-  .bg-2 {
-    background-color: lightgrey;
-    /* length:1000px; */
-    margin-top: 25px;
-    margin-right: 60px;
-    margin-left: 140px;
-    margin-bottom: 25px;
-    color:black;
-    /* border: 2px solid black;
-    box-shadow: 4px; */
-
-    /* border-radius: 5px; */
-  }
-
-  .bg-3{
-    width:900px;
-    /* margin-left: 40px; */
-    margin-top:20px;
-    /* length:500px; */
-    /* background-color: white; */
-    color:black;
-    /* border: 2px solid white; */
-  }
-
-  .bg-4 {
-    width:900px;
-    /* background-color: white; */
-    border-radius: 3px;
-  }
-
-  .bg-5 {
-    width:900px;
-    background-color: lightgrey;
-    padding-left:  180px;
-  }
-  .btn {
-    padding: 10px 20px;
-    background-color: #333;
-    color : #f1f1f1;
-    transition: .5s;
-  }
-  .btn:hover,.btn:focus {
-    border: 1px solid #333;
-    background-color: #fff;
-    color : #000;
-  }
-  .navbar {
-    /* background-color: #2d2d30; */
-    opacity:0.9;
-  }
-  </style>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 <script>
@@ -128,14 +35,14 @@ session_start();
     <div class="collapse navbar-collapse" id="menubar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link " href=login.php> Log in </a>
+          <a class="nav-link " href=../login.php> Log in </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href=signup.html> Sign up </a>
+          <a class="nav-link" href=../signup.html> Sign up </a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link active" href=discover.html> Discover </a>
+          <a class="nav-link active" href=../discover1.html> Discover </a>
         </li>
 
 
