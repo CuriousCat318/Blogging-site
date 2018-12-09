@@ -13,7 +13,7 @@ session_start();
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <link rel="stylesheet" href="style.css">
-  
+
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
 <script>
@@ -35,13 +35,13 @@ session_start();
     <div class="collapse navbar-collapse" id="menubar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href=#> Home </a>
+          <a class="nav-link" href=../homepage.php> Home </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href=discover.html> Discover </a>
+          <a class="nav-link active" href=../discover.html> Discover </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="createnew.html"> Create new </a>
+          <a class="nav-link" href="../createnew.php"> Create new </a>
         </li>
       </ul>
     </div>
@@ -50,9 +50,9 @@ session_start();
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href=# id="navbardrop" data-toggle="dropdown"> Your profile </a>
           <div class="dropdown-menu">
-            <a class = "dropdown-item" href=profile.htm> Go to your profile </a>
-            <a class="dropdown-item" href=#> Edit Profile </a>
-            <a class="dropdown-item" href="#"> Sign out </a>
+            <a class = "dropdown-item" href=../profile.php> Go to your profile </a>
+            <a class="dropdown-item" href=../edit.php> Edit Profile </a>
+            <a class="dropdown-item" href="../login.php"> Sign out </a>
           </div>
         </li>
       </ul>
@@ -63,7 +63,7 @@ session_start();
     <h1> Health & Fitness </h1>
   </div>
   <?php
-  $query = "SELECT p.title,p.post,p.category,p.date,u.name from posts as p ,user_details as u  where p.uname=u.username and p.category='Health & Fitness' order by date DESC";
+  $query = "SELECT p.title,p.post,p.category,p.date,u.name,u.username from posts as p ,user_details as u  where p.uname=u.username and p.category='Health & Fitness' order by date DESC";
   $result = mysqli_query($con,$query);
 
 
@@ -87,7 +87,7 @@ session_start();
         echo "  <div class=\"row bg-3\">
         <div class='col-sm-2'>
         <p style = 'color: #006600'> Posted by  </p>
-        <img src='../images/bg2.jpg'  class=\"img-responsive img-circle margin\" alt=\"blah\" width=\"60px\" style=\"display:inline\">
+        <a href='../viewuser.php?user=$row[5]' >  <img src='../images/bg2.jpg'  class=\"img-responsive img-circle margin\" alt=\"blah\" width=\"60px\" style=\"display:inline\"></a>
         <p style = 'color: #006600'> $row[4] </p>
 
         </div>
