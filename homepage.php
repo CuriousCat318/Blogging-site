@@ -8,12 +8,19 @@ session_start();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
   <style>
+  img.img-circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+    /* margin: 20px 200px; */
 
-  no-js #loader { display: none;  }
+  }
+  .no-js #loader { display: none;  }
   .js #loader { display: block; position: absolute; left: 100px; top: 0; }
   .se-pre-con {
   	position: fixed;
@@ -22,7 +29,7 @@ session_start();
   	width: 100%;
   	height: 100%;
   	z-index: 9999;
-  	background: url(simple-pre-loader/images/loader-64x/Preloader_6.gif) center no-repeat #fff;
+  	background: url(simple-pre-loader/images/loader-64x/Preloader_3.gif) center no-repeat #fff;
   }
   .profile {
     margin-top : 70px;
@@ -49,13 +56,14 @@ session_start();
     /* border: 2px solid white; */
   }
   .bg-2 {
-    background-color: lightgrey;
+    background-color: white;
     /* length:1000px; */
     margin-top: 25px;
     margin-right: 60px;
     margin-left: 140px;
     margin-bottom: 25px;
-    color:black;
+    color: grey;
+    float: left;
     /* border: 2px solid black;
     box-shadow: 4px; */
 
@@ -98,6 +106,7 @@ session_start();
     /* background-color: #2d2d30; */
     opacity:0.9;
   }
+
   </style>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
 <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
@@ -106,7 +115,7 @@ session_start();
 	// Wait for window load
 	$(window).load(function() {
 		// Animate loader off screen
-		$(".se-pre-con").fadeOut(2500);;
+		$(".se-pre-con").fadeOut(3500);;
 	});
   </script>
 </head>
@@ -120,13 +129,13 @@ session_start();
     <div class="collapse navbar-collapse" id="menubar">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href=#> Home </a>
+          <a class="nav-link active" href="homepage.php"> Home </a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href=discover.html> Discover </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="createnew.html"> Create new </a>
+          <a class="nav-link" href="createnew.php"> Create new </a>
         </li>
         <!-- <li class="nav-item">
           <a class="nav-link" href="profile.htm"> Your Articles </a>
@@ -138,9 +147,9 @@ session_start();
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href=# id="navbardrop" data-toggle="dropdown"> Your profile </a>
           <div class="dropdown-menu">
-            <a class = "dropdown-item" href=profile.htm> Go to your profile </a>
-            <a class="dropdown-item" href=#> Edit Profile </a>
-            <a class="dropdown-item" href="#"> Sign out </a>
+            <a class = "dropdown-item" href=profile.php> Go to your profile </a>
+            <a class="dropdown-item" href="edit.php"> Edit Profile </a>
+            <a class="dropdown-item" href="login.php"> Sign out </a>
           </div>
         </li>
       </ul>
@@ -148,7 +157,7 @@ session_start();
   </nav>
 
   <?php
-  $query = "SELECT p.title,p.post,p.category,p.date,u.name from posts as p ,user_details as u  where p.uname=u.username order by date DESC";
+  $query = "SELECT p.title,p.post,p.category,p.date,u.name,u.username from posts as p ,user_details as u  where p.uname=u.username order by date DESC";
   $result = mysqli_query($con,$query);
 
 
@@ -170,26 +179,29 @@ session_start();
   while($row = mysqli_fetch_row($result)) {
     echo " <div class=\"container-fluid profile bg-main text-center\">";
       echo "  <div class=\"row bg-3\">
-      <div class='col-sm-3'>
-      <p> Posted by  </p>
-      <p> $row[4] on $row[3] </p>
+      <div class='col-sm-2'>
+      <p style = 'color: #006600'> Posted by  </p>
+      <a href='viewuser.php?user=$row[5]'> <img src='images/bg2.jpg'  class=\"img-responsive img-circle margin\" alt=\"blah\" width=\"60px\" style=\"display:inline\"> </a>
+      <p style = 'color: #006600'> $row[4] </p>
+      
+
       </div>
-        <div class=\"col-sm-9\">
-           <h2 style = 'font-family: '> $row[0]  </h2>
+        <div class=\"col-sm-8\">
+           <h2 style = 'font-family: 'Oswald', sans-serif'> $row[0]  </h2>
         </div>
       </div>
-      <hr>
       <div class=\"row\">
         <div class=\"col-sm-8 bg-2\">
-          <p> $row[1] </p>
-        </div>
+          <p>$row[1]</p>
+
+      </div>
       </div>
       <div class=\"row bg-3\">
         <div class=\"col-sm-6 \">
-          <p> Category: $row[2] </p>
+          <p style = 'color: #006600'> Category: $row[2] </p>
         </div>
         <div class=\"col-sm-6 \">
-          <p> Posted on: $row[3] </p>
+          <p style = 'color: #006600'> Posted on: $row[3] </p>
         </div>
 
 
